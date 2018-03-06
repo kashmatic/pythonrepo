@@ -25,7 +25,7 @@ async def factorial():
     """
     Randomly get a number to sleep
     """
-    number = random.randint(0, 10)
+    number = random.randint(0, 5)
     print("GO SLEEP for {}".format(number))
     await custom_sleep(number)
     print("SLEPT for {}".format(number))
@@ -34,9 +34,9 @@ if __name__ == "__main__":
     startTime = time.time()
 
     aMultiTask = MyAsync()
+    # for i in range(0, 5):
     aMultiTask.add(factorial())
-    aMultiTask.add(factorial())
+    # aMultiTask.addlist([factorial(), factorial(), factorial()])
     aMultiTask.run()
 
-    endTime = time.time()
-    print("TOTAL time: {}".format(endTime - startTime))
+    print("TOTAL time: {}".format(time.time() - startTime))
